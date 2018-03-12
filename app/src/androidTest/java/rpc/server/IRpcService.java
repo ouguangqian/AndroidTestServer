@@ -1,6 +1,7 @@
-package server;
+package rpc.server;
 
 public interface IRpcService {
+
     void home() throws Exception;
     void back() throws Exception;
     void openNotification();
@@ -16,4 +17,5 @@ public interface IRpcService {
     void verifyEleExists(String resourceId) throws Exception;
     void verifyEleNotExists(String resourceId) throws Exception;
 
+    byte[] takeScreenshot(String pngName) throws Exception;
 }

@@ -5,7 +5,7 @@ import android.support.test.runner.AndroidJUnit4;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import exporter.RpcExporter;
+import rpc.exporter.RpcExporter;
 
 /**
  * Instrumented test, which will execute on an Android device.
@@ -15,13 +15,13 @@ import exporter.RpcExporter;
 @RunWith(AndroidJUnit4.class)
 public class AndroidTestServer {
     @Test
-    public void useAppContext() throws Exception {
+    public void startServer() throws Exception {
 
         Thread thread = new Thread(new Runnable() {
             public void run() {
                 try {
 
-                    RpcExporter.exporter("localhost", 8889);
+                    RpcExporter.exporter("localhost", 9000);
                 }catch (Exception e){
                     e.printStackTrace();
                 }
@@ -30,7 +30,7 @@ public class AndroidTestServer {
         thread.setDaemon(true);
         thread.start();
         while (true){
-            ;
+            Thread.sleep(500);
         }
 
     }
