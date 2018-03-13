@@ -71,6 +71,11 @@ public class RpcServiceImpl implements IRpcService {
     }
 
     @Override
+    public void swipe(int x, int y, int x1, int y1, int step) throws Exception {
+        uiDevice.swipe(x, y, x1, y1, step);
+    }
+
+    @Override
     public void verifyTextExists(String text) throws Exception {
         assertTrue(uiDevice.findObject(new UiSelector().textContains(text)).exists());
 
@@ -112,6 +117,16 @@ public class RpcServiceImpl implements IRpcService {
         uiDevice.takeScreenshot(file);
 
         return ImgUtils.image2Bytes(filePath);
+    }
+
+    @Override
+    public boolean textExists(String text) throws Exception {
+        return uiDevice.findObject(new UiSelector().textContains(text)).exists();
+    }
+
+    @Override
+    public boolean eleExists(String resourceId) throws Exception {
+        return uiDevice.findObject(new UiSelector().resourceId(resourceId)).exists();
     }
 
 }

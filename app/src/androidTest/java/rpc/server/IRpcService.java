@@ -14,6 +14,8 @@ public interface IRpcService {
     void inputTextById(String text, String resourceId) throws Exception;
     void clearTextById(String resourceId) throws Exception;
 
+    void swipe(int x, int y, int x1, int y1, int step) throws Exception;
+
     void verifyTextExists(String text) throws Exception;
     void verifyTextNotExists(String text) throws Exception;
 
@@ -21,4 +23,7 @@ public interface IRpcService {
     void verifyEleNotExists(String resourceId) throws Exception;
 
     byte[] takeScreenshot(String pngName) throws Exception;
+
+    boolean textExists(String text) throws Exception;
+    boolean eleExists(String resourceId) throws Exception;
 }
