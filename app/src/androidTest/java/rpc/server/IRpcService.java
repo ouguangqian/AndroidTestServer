@@ -11,6 +11,9 @@ public interface IRpcService {
     void clickByText(String text) throws Exception;
     void clickByTextContains(String text) throws Exception;
 
+    void inputTextById(String text, String resourceId) throws Exception;
+    void clearTextById(String resourceId) throws Exception;
+
     void verifyTextExists(String text) throws Exception;
     void verifyTextNotExists(String text) throws Exception;
 

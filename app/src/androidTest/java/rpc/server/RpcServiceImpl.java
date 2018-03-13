@@ -2,6 +2,7 @@ package rpc.server;
 
 import android.support.test.InstrumentationRegistry;
 import android.support.test.uiautomator.UiDevice;
+import android.support.test.uiautomator.UiObject;
 import android.support.test.uiautomator.UiSelector;
 import android.util.Log;
 
@@ -51,6 +52,21 @@ public class RpcServiceImpl implements IRpcService {
     @Override
     public void clickByTextContains(String text) throws Exception {
         uiDevice.findObject(new UiSelector().textContains(text)).click();
+
+    }
+
+    @Override
+    public void inputTextById(String text, String resourceId) throws Exception {
+        UiObject uiObject= uiDevice.findObject(new UiSelector().resourceId(resourceId));
+        uiObject.clearTextField();
+        uiObject.setText(text);
+
+    }
+
+    @Override
+    public void clearTextById(String resourceId) throws Exception {
+        UiObject uiObject= uiDevice.findObject(new UiSelector().resourceId(resourceId));
+        uiObject.clearTextField();
 
     }
 
