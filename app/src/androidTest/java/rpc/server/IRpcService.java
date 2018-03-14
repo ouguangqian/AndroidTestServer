@@ -16,12 +16,6 @@ public interface IRpcService {
 
     void swipe(int x, int y, int x1, int y1, int step) throws Exception;
 
-    void verifyTextExists(String text) throws Exception;
-    void verifyTextNotExists(String text) throws Exception;
-
-    void verifyEleExists(String resourceId) throws Exception;
-    void verifyEleNotExists(String resourceId) throws Exception;
-
     byte[] takeScreenshot(String pngName) throws Exception;
 
     boolean textExists(String text) throws Exception;

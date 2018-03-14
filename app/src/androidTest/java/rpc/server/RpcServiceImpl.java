@@ -75,27 +75,6 @@ public class RpcServiceImpl implements IRpcService {
         uiDevice.swipe(x, y, x1, y1, step);
     }
 
-    @Override
-    public void verifyTextExists(String text) throws Exception {
-        assertTrue(uiDevice.findObject(new UiSelector().textContains(text)).exists());
-
-    }
-
-    @Override
-    public void verifyTextNotExists(String text) throws Exception {
-        assertFalse(uiDevice.findObject(new UiSelector().textContains(text)).exists());
-
-    }
-
-    @Override
-    public void verifyEleExists(String resourceId) throws Exception {
-        assertTrue(uiDevice.findObject(new UiSelector().resourceId(resourceId)).exists());
-    }
-
-    @Override
-    public void verifyEleNotExists(String resourceId) throws Exception {
-        assertFalse(uiDevice.findObject(new UiSelector().resourceId(resourceId)).exists());
-    }
 
     @Override
     public byte[] takeScreenshot(String pngName) throws Exception {
